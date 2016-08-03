@@ -348,7 +348,7 @@ func (n *Node) Paginate(seq interface{}, options ...interface{}) (*Pager, error)
 		return nil, errors.New("a Paginator was previously built for this Node without filters; look for earlier .Paginator usage")
 	}
 
-	if !reflect.DeepEqual(options, n.paginator.options) || !probablyEqualPageLists(n.paginator.source, seq) {
+	if !reflect.DeepEqual(options, n.paginator.options) {
 		return nil, errors.New("invoked multiple times with different arguments")
 	}
 
